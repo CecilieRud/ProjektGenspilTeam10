@@ -1,4 +1,4 @@
-﻿namespace ProjektGenspilTeam10
+﻿namespace Genspilv2
 {
     internal class Program
     {
