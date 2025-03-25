@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genspilv2", "Genspilv2\Genspilv2.csproj", "{1C3B173C-5A7A-479D-951B-A0446FFDAF83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGenspil", "TestGenspilRud\UnitTestGenspil.csproj", "{1E2B6E7D-CDC5-4C9F-8DE1-3CF9D6CC1A1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGenspil", "UnitTestGenspil\UnitTestGenspil.csproj", "{1E2B6E7D-CDC5-4C9F-8DE1-3CF9D6CC1A1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
