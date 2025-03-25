@@ -1,6 +1,6 @@
 ﻿using Genspilv2.Rud;
 
-namespace TestGenspilRud
+namespace UnitTestGenspil.RudTest
 {
     [TestClass]
     public sealed class Test1
