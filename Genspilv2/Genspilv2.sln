@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genspilv2", "Genspilv2\Gens
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGenspil", "UnitTestGenspil\UnitTestGenspil.csproj", "{1E2B6E7D-CDC5-4C9F-8DE1-3CF9D6CC1A1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RebeccaProjekt1", "Genspilv2\Rebecca\RebeccaProjekt1\RebeccaProjekt1.csproj", "{0C65ECE4-EF6B-4DA4-9AF0-7906FE6FDD2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1E2B6E7D-CDC5-4C9F-8DE1-3CF9D6CC1A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E2B6E7D-CDC5-4C9F-8DE1-3CF9D6CC1A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E2B6E7D-CDC5-4C9F-8DE1-3CF9D6CC1A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C65ECE4-EF6B-4DA4-9AF0-7906FE6FDD2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C65ECE4-EF6B-4DA4-9AF0-7906FE6FDD2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C65ECE4-EF6B-4DA4-9AF0-7906FE6FDD2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C65ECE4-EF6B-4DA4-9AF0-7906FE6FDD2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
