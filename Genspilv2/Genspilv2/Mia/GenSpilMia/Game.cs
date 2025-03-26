@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Genspilv2.Mia.GenSpilMia
+﻿namespace Genspilv2.Mia.GenSpilMia
 {
     internal class Game
     {
