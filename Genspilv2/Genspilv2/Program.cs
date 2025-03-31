@@ -8,14 +8,13 @@
 
 
             //Menu i Main
-            static void Main(string[] args)
-            {
+            
                 bool showMenu = true;
                 while (showMenu)
                 {
                     showMenu = MainMenu();
                 }
-            }
+            
         }
 
         private static bool MainMenu()
