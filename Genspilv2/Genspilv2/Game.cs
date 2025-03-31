@@ -1,4 +1,10 @@
-﻿namespace Genspilv2.Rud
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Genspilv2
 {
     public class Game(State currentState, double totalPrice)
     {

@@ -1,7 +1,9 @@
 ﻿namespace Genspilv2
 {
-    internal class Program
+    public class Program
     {
+        
+
         static void Main(string[] args)
         {
             //Indsættelse af variabler der kan kaldes på i alle menuerne
@@ -17,9 +19,11 @@
         }
         
 
-        private static bool MainMenu()
+        public static bool MainMenu()
         {
-            Console.WriteLine("""
+            string valg = "";
+
+        Console.WriteLine("""
             Vælg punkt: 
             1) Overblik over spil
             2) Reservation af spil
@@ -31,7 +35,9 @@
             """);
 
             //Debug sikring for at sikre sig, at man er hvor man ønsker
-            string valg = Console.ReadLine() ?? "Fejl proev igen";
+            //string valg = Console.ReadLine() ?? "Fejl proev igen";
+            while (valg == "")
+                { valg = Console.ReadLine(); }
             Console.WriteLine(valg);
 
 
@@ -60,6 +66,8 @@
                     Afslut();
                     return false;
                 default:
+                    Console.WriteLine("Forkert valg, proev igen");
+                    valg = "";
                     return true;
             }
         }
