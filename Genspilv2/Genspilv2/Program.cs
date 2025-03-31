@@ -8,15 +8,14 @@
 
 
             //Menu i Main
-            static void Main(string[] args)
-            {
+           
                 bool showMenu = true;
                 while (showMenu)
                 {
                     showMenu = MainMenu();
                 }
-            }
         }
+        
 
         private static bool MainMenu()
         {
@@ -32,8 +31,9 @@
             """);
 
             //Debug sikring for at sikre sig, at man er hvor man ønsker
-            string valg = Console.ReadLine();
+            string valg = Console.ReadLine() ?? "Fejl proev igen";
             Console.WriteLine(valg);
+
 
             //cases på menuen
             switch (valg)
