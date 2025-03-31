@@ -1,4 +1,4 @@
-﻿using Genspilv2.Rud;
+﻿using Genspilv2;
 
 namespace UnitTestGenspil.RudTest
 {

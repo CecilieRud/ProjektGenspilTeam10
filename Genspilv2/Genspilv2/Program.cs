@@ -22,12 +22,9 @@
             Console.WriteLine("""
             Vælg punkt: 
             1) Overblik over spil
-            2) Reservation af spil
-            3) Søge på spil
-            4) Efterspørgelse af spil
-            5) Prissættelse af spil
-            6) Lagerliste
-            7) Afslut programmet
+            2) Søge på spil
+            3) Lagerliste
+            4) Afslut programmet
             """);
 
             //Debug sikring for at sikre sig, at man er hvor man ønsker
@@ -38,24 +35,15 @@
             switch (valg)
             {
                 case "1":
-                    Overblik();
+                    Lagerstyring();
                     return true;
                 case "2":
-                    Reservation();
-                    return true;
-                case "3":
                     Soegning();
                     return true;
-                case "4":
-                    Efterspoergelse();
-                    return true;
-                case "5":
-                    Prissaettelse();
-                    return true;
-                case "6":
+                case "3":
                     Lagerliste();
                     return true;
-                case "7":
+                case "4":
                     Afslut();
                     return false;
                 default:
@@ -63,39 +51,61 @@
             }
         }
         //Case 1 Overblik
-        private static void Overblik()
+        private static void Lagerstyring()
         {
-            Console.WriteLine("Her er Overblik");
+            {
+                Game game1 = new Game("Catan", "Strategi", 4, "God", 10, 100.00);
+                Game game2 = new Game("BezzerWizzer", "Quiz", 4, "OK", 12, 80.00);
+                Game game3 = new Game("Domino", "Klassisk", 2, "Som ny", 8, 50.00);
+
+                //new Spil { Title = "Catan", Genre = "Strategi", AntalSpillere = 4, Stand = "God", AntalSpil = 10, Pris = 100.00 };
+                //new Spil { SpilNavn = "Bezzerwizzer", Genre = "Quiz", AntalSpillere = 4, Stand = "OK", AntalSpil = 8, Pris = 80.00 };
+
+                Storage lager = new Storage();
+
+                //{
+                //    new Spil("Catan", "Strategi", 4, "God", 10, 100.00);
+                //    new Spil("BezzerWizzer", "Quiz", 4, "OK", 12, 80.00);
+                //};
+                lager.AddGame(game1);
+                lager.AddGame(game2);
+                lager.AddGame(game3);
+
+                lager.PrintGames();
+
+                Console.ReadKey();
+            }
         }
 
-        //Case 2 Reservation
-        private static void Reservation()
-        {
-            Console.WriteLine("Her er Reservation");
-        }
-
-        //Case 3 Søge
+        //Case 2 Søge
         private static void Soegning()
         {
             Console.WriteLine("Her er Søge");
         }
 
-        //Case 4, Efterspørgelse
-        private static void Efterspoergelse()
-        {
-            Console.WriteLine("Her er Efterspørgelse");
-        }
-
-        //Case 5, Prissættelse
-        private static void Prissaettelse()
-        {
-            Console.WriteLine("Her er Prissættelse");
-        }
-
-        //Case 6, Lagerliste,
+        //Case 3, Lagerliste,
         private static void Lagerliste()
         {
-            Console.WriteLine("Her er Lagerlisten");
+            Game game1 = new Game("Catan", "Strategi", 4, "God", 10, 100.00);
+            Game game2 = new Game("BezzerWizzer", "Quiz", 4, "OK", 12, 80.00);
+            Game game3 = new Game("Domino", "Klassisk", 2, "Som ny", 8, 50.00);
+
+            //new Spil { Title = "Catan", Genre = "Strategi", AntalSpillere = 4, Stand = "God", AntalSpil = 10, Pris = 100.00 };
+            //new Spil { SpilNavn = "Bezzerwizzer", Genre = "Quiz", AntalSpillere = 4, Stand = "OK", AntalSpil = 8, Pris = 80.00 };
+
+            Storage lager = new Storage();
+
+            //{
+            //    new Spil("Catan", "Strategi", 4, "God", 10, 100.00);
+            //    new Spil("BezzerWizzer", "Quiz", 4, "OK", 12, 80.00);
+            //};
+            lager.AddGame(game1);
+            lager.AddGame(game2);
+            lager.AddGame(game3);
+
+            lager.PrintGames();
+
+            Console.ReadKey();
         }
 
         //Case 7, Afslut
