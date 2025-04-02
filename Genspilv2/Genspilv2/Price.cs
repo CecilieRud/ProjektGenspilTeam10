@@ -8,8 +8,12 @@ namespace Genspilv2
 {
     public class Price(State currentState, double totalPrice)
     {
-        private State CurrentState { get; set; } = currentState;
+        private State currentState;
+        public State CurrentState { get; set; } = currentState;
         private double TotalPrice { get; set; } = totalPrice;
+
+        
+       
 
         public double GetPrice()
         {

@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        
 
         static void Main(string[] args)
         {
@@ -58,11 +59,6 @@
                     return true;
 
             }
-        }
-
-        private static void StandPris()
-        {
-            throw new NotImplementedException();
         }
 
         //Case 1 Overblik
@@ -244,51 +240,26 @@
                 Console.WriteLine();
             }
         }
+        
 
-        class Reservation
-        {
-            public string CustomerName { get; }
-            public string CustomerEmail { get; }
-            public string GameTitle { get; }
-
-            public Reservation(string customerName, string customerEmail, string gameTitle)
-            {
-                CustomerName = customerName;
-                CustomerEmail = customerEmail;
-                GameTitle = gameTitle;
-            }
-        }
-
-        class Request
-        {
-            public string CustomerName { get; }
-            public string CustomerEmail { get; }
-            public string GameTitle { get; }
-
-            public Request(string customerName, string customerEmail, string gameTitle)
-            {
-                CustomerName = customerName;
-                CustomerEmail = customerEmail;
-                GameTitle = gameTitle;
-            }
-        }
+        
+        
+        
 
         //Case 4 Overblik
-        private static void StandPris(double getPrice, State CurrentState)
+
+        private static void StandPris()
         {
+
+
             Console.WriteLine("Hvad er original prisen for spillet? ");
             double TotalPrice = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Hvad er spillets stand? Ny, God, Brugt, MegetBrugt");
-            var currentState = Console.ReadLine()?.ToLower() ?? "";
-            getPrice = currentState switch
-            {
-                "ny" => State.Ny,
-                "god" => State.God,
-                "brugt" => State.Brugt,
-                "megetbrugt" => State.MegetBrugt,
-                 => throw new Exception("Ugyldig stand")
-            };
+            var State = Console.ReadLine()?.ToLower() ?? "";
+
+
+            Console.WriteLine($"Spillets original pris er: {TotalPrice}.\nSpillets stand er {State}.\nSpillets pris efter stand er {Price.CurrentState} kr.");
             }
             
         
