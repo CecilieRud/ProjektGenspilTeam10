@@ -86,8 +86,49 @@
         //Case 2 Søge
         private static void Soegning()
         {
-            Console.WriteLine("Her er Søge");
+            List<Spil> spilListe = new List<Spil>
+        {
+            new Spil { Titel = "Sequence", Genre = Genre.Strategi, Stand = Stand.God, Spillere = 2, Pris = 200, Lager = LagerStatus.PaaLager },
+            new Spil { Titel = "Ticket to Ride", Genre = Genre.Familie, Stand = Stand.Ny, Spillere = 4, Pris = 300, Lager = LagerStatus.PaaLager },
+            new Spil { Titel = "7 Wonders", Genre = Genre.Strategi, Stand = Stand.Brugt, Spillere = 4, Pris = 200, Lager = LagerStatus.Reserveret },
+            new Spil { Titel = "Alverdens", Genre = Genre.Quiz, Stand = Stand.God, Spillere = 4, Pris = 180, Lager = LagerStatus.PaaLager },
+            new Spil { Titel = "A la Carte: Dessert", Genre = Genre.PartySpil, Stand = Stand.MegetBrugt, Spillere = 2, Pris = 100, Lager = LagerStatus.Forespurgt },
+            new Spil { Titel = "Bad People", Genre = Genre.PartySpil, Stand = Stand.God, Spillere = 6, Pris = 250, Lager = LagerStatus.PaaLager }
+        };
+
+            Medarbejder medarbejder = new Medarbejder { Navn = "Jamal", Mail = "jamal@genspil.dk" };
+
+            Console.WriteLine("Indtast søgekriterier (tryk Enter for at springe over et kriterium)");
+            Console.Write("Titel: ");
+            string titel = Console.ReadLine();
+
+            Console.Write("Genre (Strategi, Familie, Quiz, PartySpil): ");
+            Genre? genre = Enum.TryParse(Console.ReadLine(), true, out Genre g) ? g : (Genre?)null;
+
+            Console.Write("Stand (Ny, God, Brugt, MegetBrugt): ");
+            Stand? stand = Enum.TryParse(Console.ReadLine(), true, out Stand s) ? s : (Stand?)null;
+
+            Console.Write("Antal spillere: ");
+            int? spillere = int.TryParse(Console.ReadLine(), out int sp) ? sp : (int?)null;
+
+            Console.Write("Minimumspris: ");
+            double? prisMin = double.TryParse(Console.ReadLine(), out double pMin) ? pMin : (double?)null;
+
+            Console.Write("Maksimumspris: ");
+            double? prisMax = double.TryParse(Console.ReadLine(), out double pMax) ? pMax : (double?)null;
+
+            Console.Write("Lagerstatus (PaaLager, Reserveret, Forespurgt, IkkePaaLager - tryk Enter for alle): ");
+            LagerStatus? lager = Enum.TryParse(Console.ReadLine(), true, out LagerStatus l) ? l : (LagerStatus?)null;
+
+            var resultater = medarbejder.SoegSpil(spilListe, titel, genre, stand, spillere, prisMin, prisMax, lager);
+
+            Console.WriteLine("\nFundne spil:");
+            foreach (var spil in resultater)
+            {
+                Console.WriteLine(spil);
+            }
         }
+        
 
         //Case 3, Reservation,
         private static void ReservationForespoergelsel()
