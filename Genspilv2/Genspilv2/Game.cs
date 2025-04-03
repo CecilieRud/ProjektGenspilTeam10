@@ -104,7 +104,7 @@ namespace Genspilv2
                 Players = int.Parse(parts[2]),
                 _state = Enum.Parse<State>(parts[3]),
                 NumberGames = int.Parse(parts[4]),
-                Price = int.Parse(parts[5]),
+                Price = double.Parse(parts[5]),
             };
 
 

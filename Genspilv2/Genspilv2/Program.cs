@@ -1,4 +1,6 @@
-﻿namespace Genspilv2
+﻿using static Spil;
+
+namespace Genspilv2
 {
     internal class Program
     {
@@ -94,39 +96,39 @@
         {
             List<Spil> spilListe = new List<Spil>
         {
-            new Spil { Titel = "Sequence", Genre = Genre.Strategi, Stand = Stand.God, Spillere = 2, Pris = 200, Lager = LagerStatus.PaaLager },
-            new Spil { Titel = "Ticket to Ride", Genre = Genre.Familie, Stand = Stand.Ny, Spillere = 4, Pris = 300, Lager = LagerStatus.PaaLager },
-            new Spil { Titel = "7 Wonders", Genre = Genre.Strategi, Stand = Stand.Brugt, Spillere = 4, Pris = 200, Lager = LagerStatus.Reserveret },
-            new Spil { Titel = "Alverdens", Genre = Genre.Quiz, Stand = Stand.God, Spillere = 4, Pris = 180, Lager = LagerStatus.PaaLager },
-            new Spil { Titel = "A la Carte: Dessert", Genre = Genre.PartySpil, Stand = Stand.MegetBrugt, Spillere = 2, Pris = 100, Lager = LagerStatus.Forespurgt },
-            new Spil { Titel = "Bad People", Genre = Genre.PartySpil, Stand = Stand.God, Spillere = 6, Pris = 250, Lager = LagerStatus.PaaLager }
+            new Spil { Title = "Sequence", genre = Spil.Genre.Strategi, state = Spil.State.God, Players = 2, Price = 200, Lager = LagerStatus.PaaLager },
+            new Spil { Title = "Ticket to Ride", genre = Spil.Genre.Familie, state = Spil.State.Ny, Players = 4, Price = 300, Lager = LagerStatus.PaaLager },
+            new Spil { Title = "7 Wonders", genre = Spil.Genre.Strategi, state = Spil.State.Brugt, Players = 4, Price = 200, Lager = LagerStatus.Reserveret },
+            new Spil { Title = "Alverdens", genre = Spil.Genre.Quiz, state = Spil.State.God, Players = 4, Price = 180, Lager = LagerStatus.PaaLager },
+            new Spil { Title = "A la Carte: Dessert", genre = Spil.Genre.Familie, state = Spil.State.Brugt, Players = 2, Price = 100, Lager = LagerStatus.Forespurgt },
+            new Spil { Title = "Bad People", genre = Spil.Genre.Familie, state = Spil.State.God, Players = 6, Price = 250, Lager = LagerStatus.PaaLager }
         };
 
             Medarbejder medarbejder = new Medarbejder { Navn = "Jamal", Mail = "jamal@genspil.dk" };
 
             Console.WriteLine("Indtast søgekriterier (tryk Enter for at springe over et kriterium)");
             Console.Write("Titel: ");
-            string titel = Console.ReadLine();
+            string title = Console.ReadLine();
 
             Console.Write("Genre (Strategi, Familie, Quiz, PartySpil): ");
-            Genre? genre = Enum.TryParse(Console.ReadLine(), true, out Genre g) ? g : (Genre?)null;
+            Spil.Genre? genre = (Spil.Genre?)(Enum.TryParse(Console.ReadLine(), true, out Genre g) ? g : (Genre?)null);
 
             Console.Write("Stand (Ny, God, Brugt, MegetBrugt): ");
-            Stand? stand = Enum.TryParse(Console.ReadLine(), true, out Stand s) ? s : (Stand?)null;
+            Spil.State? state = (Spil.State?)(Enum.TryParse(Console.ReadLine(), true, out State s) ? s : (State?)null);
 
             Console.Write("Antal spillere: ");
-            int? spillere = int.TryParse(Console.ReadLine(), out int sp) ? sp : (int?)null;
+            int? players = int.TryParse(Console.ReadLine(), out int sp) ? sp : (int?)null;
 
             Console.Write("Minimumspris: ");
-            double? prisMin = double.TryParse(Console.ReadLine(), out double pMin) ? pMin : (double?)null;
+            double? priceMin = double.TryParse(Console.ReadLine(), out double pMin) ? pMin : (double?)null;
 
             Console.Write("Maksimumspris: ");
-            double? prisMax = double.TryParse(Console.ReadLine(), out double pMax) ? pMax : (double?)null;
+            double? priceMax = double.TryParse(Console.ReadLine(), out double pMax) ? pMax : (double?)null;
 
             Console.Write("Lagerstatus (PaaLager, Reserveret, Forespurgt, IkkePaaLager - tryk Enter for alle): ");
             LagerStatus? lager = Enum.TryParse(Console.ReadLine(), true, out LagerStatus l) ? l : (LagerStatus?)null;
 
-            var resultater = medarbejder.SoegSpil(spilListe, titel, genre, stand, spillere, prisMin, prisMax, lager);
+            var resultater = medarbejder.SoegSpil(spilListe, title, genre, state, players, priceMin, priceMax, lager);
 
             Console.WriteLine("\nFundne spil:");
             foreach (var spil in resultater)
