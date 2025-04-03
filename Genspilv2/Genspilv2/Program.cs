@@ -41,7 +41,8 @@ namespace Genspilv2
             3) ReservationForespørgsel
             4) Stand og Pris
             5) Lagerliste
-            6) Afslut programmet
+            6) Gem spil
+            7) Afslut programmet
             """);
 
             string valg = Console.ReadLine();
@@ -155,8 +156,11 @@ namespace Genspilv2
         //Case 3, Reservation,
         private static void ReservationForespoergelsel()
         {
+
             List<Reservation> reservations = new List<Reservation>();
             List<Request> requests = new List<Request>();
+
+            ReservationsMenu(reservations, requests);
 
             static void ReservationsMenu(List<Reservation> reservations, List<Request> requests)
             {
