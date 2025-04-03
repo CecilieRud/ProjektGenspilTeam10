@@ -4,7 +4,18 @@ namespace Genspilv2
 {
     internal class Program
     {
-        
+        static List<Game> game = new List<Game> //laver en liste over spil på lageret 
+            {
+               new Game("Matador", 2, new List<string> { "Strategispil", "Familiespil" }),
+                new Game("Ludo", 3, new List<string> { "Familiespil", "Børnespil" }),
+                new Game("Scrabble", 1, new List<string> { "Ordspil" }),
+                new Game("Bezzerwizzer", 1, new List<string> {"Quizspil"}),
+                new Game("Skak", 4, new List<string> {"Strategispil"}),
+                new Game("Stratego", 2, new List<string> {"Strategispil"}),
+                new Game("Vildkatten", 1, new List<string> {"Familiespil", "Børnespil"}),
+                new Game("Trivial pursuit", 5, new List<string> {"Quizspil"}),
+                new Game("Børne Alfabet", 1, new List<string> {"Børnespil", "Ordspil"}),
+            };
 
         static void Main(string[] args)
         {
@@ -55,6 +66,9 @@ namespace Genspilv2
                     Lagerliste();
                     return true;
                 case "6":
+                    GemSpil();
+                    return true;
+                case "7":
                     Afslut();
                     return false;
                 default:
@@ -252,7 +266,7 @@ namespace Genspilv2
 
         private static void StandPris()
         {
-            Price price = new Price();
+            
 
             Console.WriteLine("Hvad er original prisen for spillet? ");
             double TotalPrice = double.Parse(Console.ReadLine());
@@ -261,7 +275,7 @@ namespace Genspilv2
             var State = Console.ReadLine()?.ToLower() ?? "";
 
 
-            Console.WriteLine($"Spillets original pris er: {TotalPrice}.\nSpillets stand er {State}.\nSpillets pris efter stand er {Price.GetPrice} kr.");
+            
             }
             
         
@@ -269,18 +283,7 @@ namespace Genspilv2
         //Case 5, Lagerliste,
         private static void Lagerliste()
         {
-            List<Game> game = new List<Game> //laver en liste over spil på lageret 
-            {
-               new Game("Matador", 2, new List<string> { "Strategispil", "Familiespil" }),
-                new Game("Ludo", 3, new List<string> { "Familiespil", "Børnespil" }),
-                new Game("Scrabble", 1, new List<string> { "Ordspil" }),
-                new Game("Bezzerwizzer", 1, new List<string> {"Quizspil"}),
-                new Game("Skak", 4, new List<string> {"Strategispil"}),
-                new Game("Stratego", 2, new List<string> {"Strategispil"}),
-                new Game("Vildkatten", 1, new List<string> {"Familiespil", "Børnespil"}),
-                new Game("Trivial pursuit", 5, new List<string> {"Quizspil"}),
-                new Game("Børne Alfabet", 1, new List<string> {"Børnespil", "Ordspil"}),
-            };
+            
 
 
             Console.WriteLine("Vælg sortering af lagerlisten:");
@@ -332,6 +335,13 @@ namespace Genspilv2
         }
 
         //Case 6, Afslut
+        private static void GemSpil()
+        {
+            Datahandler datahandler = new Datahandler("game.txt");
+            datahandler.SaveGame(game);
+        }
+
+        //Case 7, Afslut
         private static void Afslut()
         {
             Console.WriteLine($"\r\nTryk Enter for at Afslutte");
