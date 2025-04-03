@@ -250,7 +250,7 @@
 
         private static void StandPris()
         {
-
+            Price price = new Price();
 
             Console.WriteLine("Hvad er original prisen for spillet? ");
             double TotalPrice = double.Parse(Console.ReadLine());
@@ -259,7 +259,7 @@
             var State = Console.ReadLine()?.ToLower() ?? "";
 
 
-            Console.WriteLine($"Spillets original pris er: {TotalPrice}.\nSpillets stand er {State}.\nSpillets pris efter stand er {Price.CurrentState} kr.");
+            Console.WriteLine($"Spillets original pris er: {TotalPrice}.\nSpillets stand er {State}.\nSpillets pris efter stand er {Price.GetPrice} kr.");
             }
             
         
