@@ -13,7 +13,10 @@ namespace Genspilv2
         private int _players = 0;
         private State _state = State.God; // Stand af spil
         private int _numberGames = 0;
-        private double _price = 0.00;
+        private State currentState;
+        private double price;
+        private double getPrice;
+
         public enum Genre
         {
             Strategi,
@@ -28,7 +31,7 @@ namespace Genspilv2
             Ny,
             God,
             Brugt,
-            Meget_Brugt
+            MegetBrugt
         }
         private int _quantity;
         private List<string> _genres;
@@ -38,11 +41,13 @@ namespace Genspilv2
         public Genre GenreList { get => _genre; set => _genre = value; }
         public int Players { get => _players; set => _players = value; }
         public State StateCondition { get => _state; set => _state = value; }
-        public int NumberGames { get => _numberGames; set => _numberGames = value; }
-        public double Price { get => _price; set => _price = value; }
+        public int NumberGames { get => _numberGames; set => _numberGames = value; } 
         public string Title { get => _title; set => _title = value; }
         public int Quantity { get => _quantity; set => _quantity = value; }
         public List<string> Genres { get => _genres; set => _genres = value; }
+        public State CurrentState { get => currentState; set => currentState = value; }
+        public double Price { get => price; set => price = value; }
+        public double GetPrice { get => getPrice; set => getPrice = value; }
 
 
         // Constructor
@@ -73,6 +78,18 @@ namespace Genspilv2
 
         public Game(string v1, string v2, int v3, string v4, int v5, double v6)
         {
+        }
+
+        public double GetPrice()
+        {
+            return CurrentState switch
+            {
+                State.Ny => Price * 0.9,
+                State.God => Price * 0.8,
+                State.Brugt => Price * 0.6,
+                State.MegetBrugt => Price * 0.4,
+                _ => throw new Exception(),
+            };
         }
 
         public void PrintGameDetails()

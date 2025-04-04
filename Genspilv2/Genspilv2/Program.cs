@@ -1,4 +1,4 @@
-﻿using static Spil;
+﻿
 
 namespace Genspilv2
 {
@@ -84,7 +84,7 @@ namespace Genspilv2
             Game game1 = new Game("Catan", Game.Genre.Strategi, 4, Game.State.God, 10, 100.00);
             Game game2 = new Game("BezzerWizzer", Game.Genre.Quiz, 4, Game.State.Brugt, 12, 80.00);
             Game game3 = new Game("Domino", Game.Genre.Familie, 2, Game.State.Ny, 8, 50.00);
-            Game game4 = new Game("Pandemic", Game.Genre.Strategi, 5, Game.State.Meget_Brugt, 9, 100.00);
+            Game game4 = new Game("Pandemic", Game.Genre.Strategi, 5, Game.State.MegetBrugt, 9, 100.00);
 
             //new Spil { Title = "Catan", Genre = "Strategi", AntalSpillere = 4, Stand = "God", AntalSpil = 10, Pris = 100.00 };
             //new Spil { SpilNavn = "Bezzerwizzer", Genre = "Quiz", AntalSpillere = 4, Stand = "OK", AntalSpil = 8, Pris = 80.00 };
@@ -129,7 +129,7 @@ namespace Genspilv2
             Spil.Genre? genre = (Spil.Genre?)(Enum.TryParse(Console.ReadLine(), true, out Genre g) ? g : (Genre?)null);
 
             Console.Write("Stand (Ny, God, Brugt, MegetBrugt): ");
-            Spil.State? state = (Spil.State?)(Enum.TryParse(Console.ReadLine(), true, out State s) ? s : (State?)null);
+            Spil.State? state = (Spil.State?)(Enum.TryParse(Console.ReadLine(), true, out Game.State s) ? s : (Game.State?)null);
 
             Console.Write("Antal spillere: ");
             int? players = int.TryParse(Console.ReadLine(), out int sp) ? sp : (int?)null;
@@ -270,7 +270,6 @@ namespace Genspilv2
 
         private static void StandPris()
         {
-            
 
             Console.WriteLine("Hvad er original prisen for spillet? ");
             double TotalPrice = double.Parse(Console.ReadLine());
@@ -278,7 +277,7 @@ namespace Genspilv2
             Console.WriteLine("Hvad er spillets stand? Ny, God, Brugt, MegetBrugt");
             var State = Console.ReadLine()?.ToLower() ?? "";
 
-
+            Console.WriteLine("Spillets pris er" + Game.GetPrice);
             
             }
             
