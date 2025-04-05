@@ -15,7 +15,6 @@ namespace Genspilv2
         private int _numberGames = 0;
         private State currentState;
         private double price;
-        private double getPrice;
 
         public enum Genre
         {
@@ -47,7 +46,6 @@ namespace Genspilv2
         public List<string> Genres { get => _genres; set => _genres = value; }
         public State CurrentState { get => currentState; set => currentState = value; }
         public double Price { get => price; set => price = value; }
-        public double GetPrice { get => getPrice; set => getPrice = value; }
 
 
         // Constructor

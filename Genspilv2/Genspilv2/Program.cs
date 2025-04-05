@@ -17,7 +17,7 @@ namespace Genspilv2
                 new Game("Børne Alfabet", 1, new List<string> {"Børnespil", "Ordspil"}),
             };
 
-        static void Main(string[] args)
+        static void Main(string[] args, Game game)
         {
             //Indsættelse af variabler der kan kaldes på i alle menuerne
 
@@ -26,12 +26,12 @@ namespace Genspilv2
             bool showMenu = true;
             while (showMenu)
             {
-                showMenu = MainMenu();
+                showMenu = MainMenu(game);
             }
 
         }
 
-        private static bool MainMenu()
+        private static bool MainMenu(Game game)
         {
 
             Console.WriteLine("""
@@ -61,7 +61,7 @@ namespace Genspilv2
                     ReservationForespoergelsel();
                     return true;
                 case "4":
-                    StandPris();
+                    StandPris(GetGame(game));
                     return true;
                 case "5":
                     Lagerliste();
@@ -119,7 +119,7 @@ namespace Genspilv2
             new Spil { Title = "Bad People", genre = Spil.Genre.Familie, state = Spil.State.God, Players = 6, Price = 250, Lager = LagerStatus.PaaLager }
         };
 
-            Medarbejder medarbejder = new Medarbejder { Navn = "Jamal", Mail = "jamal@genspil.dk" };
+            Spil.Medarbejder medarbejder = new Spil.Medarbejder { Navn = "Jamal", Mail = "jamal@genspil.dk" };
 
             Console.WriteLine("Indtast søgekriterier (tryk Enter for at springe over et kriterium)");
             Console.Write("Titel: ");
@@ -260,15 +260,16 @@ namespace Genspilv2
                 Console.WriteLine();
             }
         }
-        
 
-        
-        
-        
 
         //Case 4 Overblik
 
-        private static void StandPris()
+        private static Game GetGame(Game game)
+        {
+            return game;
+        }
+
+        private static void StandPris(Game game)
         {
 
             Console.WriteLine("Hvad er original prisen for spillet? ");
@@ -277,7 +278,7 @@ namespace Genspilv2
             Console.WriteLine("Hvad er spillets stand? Ny, God, Brugt, MegetBrugt");
             var State = Console.ReadLine()?.ToLower() ?? "";
 
-            Console.WriteLine("Spillets pris er" + Game.GetPrice);
+            Console.WriteLine($"Spillets pris er{game.GetPrice}");
             
             }
             
