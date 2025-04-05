@@ -336,7 +336,7 @@ namespace Genspilv2
             }
         }
 
-        //Case 6, Afslut
+        //Case 6, GemSpil
         private static void GemSpil()
         {
             Datahandler datahandler = new Datahandler("game.txt");
