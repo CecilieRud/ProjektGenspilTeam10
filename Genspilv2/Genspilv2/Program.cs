@@ -19,9 +19,7 @@ namespace Genspilv2
 
         static void Main(string[] args, Game game)
         {
-            //Indsættelse af variabler der kan kaldes på i alle menuerne
-
-
+            
             //Menu i Main
             bool showMenu = true;
             while (showMenu)
