@@ -34,8 +34,7 @@ namespace Genspilv2
         }
         private int _quantity;
         private List<string> _genres;
-
-
+        private int v;
 
         public Genre GenreList { get => _genre; set => _genre = value; }
         public int Players { get => _players; set => _players = value; }
@@ -60,7 +59,7 @@ namespace Genspilv2
         }
 
         // Default constructor
-        public Game()
+        public Game(State ny)
         {
             Title = "";
             GenreList = Genre.Quiz;
@@ -76,6 +75,11 @@ namespace Genspilv2
 
         public Game(string v1, string v2, int v3, string v4, int v5, double v6)
         {
+        }
+
+        public Game(State ny, int v) : this(ny)
+        {
+            this.v = v;
         }
 
         public double GetPrice()

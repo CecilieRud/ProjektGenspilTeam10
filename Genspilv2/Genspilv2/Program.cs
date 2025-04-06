@@ -1,5 +1,7 @@
 ﻿
 
+using static Genspilv2.Game;
+
 namespace Genspilv2
 {
     internal class Program
@@ -17,19 +19,19 @@ namespace Genspilv2
                 new Game("Børne Alfabet", 1, new List<string> {"Børnespil", "Ordspil"}),
             };
 
-        static void Main(string[] args, Game game)
+        static void Main(string[] args)
         {
             
             //Menu i Main
             bool showMenu = true;
             while (showMenu)
             {
-                showMenu = MainMenu(game);
+                showMenu = MainMenu();
             }
 
         }
 
-        private static bool MainMenu(Game game)
+        private static bool MainMenu()
         {
 
             Console.WriteLine("""
@@ -59,7 +61,7 @@ namespace Genspilv2
                     ReservationForespoergelsel();
                     return true;
                 case "4":
-                    StandPris(GetGame(game));
+                    StandPris();
                     return true;
                 case "5":
                     Lagerliste();
@@ -262,21 +264,16 @@ namespace Genspilv2
 
         //Case 4 Overblik
 
-        private static Game GetGame(Game game)
-        {
-            return game;
-        }
-
-        private static void StandPris(Game game)
+        
+        private static void StandPris()
         {
 
-            Console.WriteLine("Hvad er original prisen for spillet? ");
-            double TotalPrice = double.Parse(Console.ReadLine());
+            var game = new Game(State.Ny, 200);
+            var game2 = new Game(State.God, 200);
+            var game3 = new Game(State.Brugt, 200);
+            var game4 = new Game(State.MegetBrugt, 200);
 
-            Console.WriteLine("Hvad er spillets stand? Ny, God, Brugt, MegetBrugt");
-            var State = Console.ReadLine()?.ToLower() ?? "";
-
-            Console.WriteLine($"Spillets pris er{game.GetPrice}");
+            Console.WriteLine($"Spillets pris er {GetPrice}");
             
             }
             
