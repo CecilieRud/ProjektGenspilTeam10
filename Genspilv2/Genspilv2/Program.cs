@@ -273,7 +273,7 @@ namespace Genspilv2
             var game3 = new Game(State.Brugt, 200);
             var game4 = new Game(State.MegetBrugt, 200);
 
-            Console.WriteLine($"Spillets pris er {GetPrice}");
+            Console.WriteLine($"Spillets pris er {game.GetPrice}");
             
             }
             
