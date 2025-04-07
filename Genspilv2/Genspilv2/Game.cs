@@ -67,6 +67,12 @@ namespace Genspilv2
             StateCondition = State.God;
             NumberGames = 0;
             Price = 0.00;
+
+        }
+
+        public Game()
+        {
+
         }
 
         public Game(string v1, int v2, List<string> list)
@@ -82,16 +88,25 @@ namespace Genspilv2
             this.v = v;
         }
 
-        public double GetPrice()
+        public double GetPrice(Game item)
         {
-            return CurrentState switch
-            {
-                State.Ny => Price * 0.9,
-                State.God => Price * 0.8,
-                State.Brugt => Price * 0.6,
-                State.MegetBrugt => Price * 0.4,
-                _ => throw new Exception(),
-            };
+            if (item._state == State.Ny)
+                return item.Price * 0.9;
+            if (item._state == State.God)
+                return item.Price * 0.8;
+            if (item._state == State.Brugt)
+                return item.Price * 0.6;
+            if (item._state == State.MegetBrugt)
+                return item.Price * 0.4;
+            return 0.0;
+            // return CurrentState switch
+            //{
+            //    State.Ny => Price * 0.9,
+            //    State.God => Price * 0.8,
+            //    State.Brugt => Price * 0.6,
+            //    State.MegetBrugt => Price * 0.4,
+            //    _ => throw new Exception(),
+            //};
         }
 
         public void PrintGameDetails()
